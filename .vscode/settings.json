@@ -1,0 +1,106 @@
+{
+  // General
+  "files.defaultLanguage": "English",
+  "editor.unicodeHighlight.allowedLocales": {
+    "_os": true,
+    "_vscode": true,
+    "ru": true
+  },
+  "files.autoSave": "onFocusChange",
+  "workbench.editor.enablePreview": false,
+  "explorer.confirmDragAndDrop": false,
+  "telemetry.telemetryLevel": "off",
+  "editor.minimap.enabled": false,
+  "editor.lineNumbers": "on",
+  "editor.semanticHighlighting.enabled": "configuredByTheme",
+  "editor.linkedEditing": true,
+  "editor.cursorStyle": "line",
+  "editor.cursorWidth": 3,
+  "editor.cursorBlinking": "phase",
+  "editor.renderLineHighlight": "none",
+  "editor.bracketPairColorization.enabled": false,
+  "editor.stickyScroll.enabled": false,
+  "window.titleBarStyle": "native",
+  "window.customTitleBarVisibility": "never",
+  "workbench.tree.indent": 20,
+  "workbench.sideBar.location": "left",
+  // Disable tabs visually
+  "workbench.editor.showTabs": "multiple",
+  // Fonts and sizes
+  "editor.fontFamily": "BlexMono Nerd Font Mono",
+  "terminal.integrated.fontFamily": "BlexMono Nerd Font Mono",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "terminal.integrated.fontSize": 14,
+  "editor.tabSize": 4,
+  "window.zoomLevel": 0.5,
+  // Formatting
+  "editor.formatOnSave": true,
+  // Python
+  "python.languageServer": "Pylance",
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.indexing": true,
+  // ruff
+  "ruff.configuration": "~/.config/ruff/ruff.toml",
+  "ruff.configurationPreference": "filesystemFirst",
+  "ruff.lint.enable": true,
+  "ruff.lint.preview": true,
+  "[python]": {
+    "editor.rulers": [120],
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  // Go
+  "go.toolsManagement.autoUpdate": true,
+  // Emmet
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "phoenix-heex": "html"
+  },
+  // JS
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // Elixir
+  "elixirLS.autoInsertRequiredAlias": false,
+  "[elixir]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.wordBasedSuggestions": "off",
+    "editor.formatOnType": false,
+    "editor.formatOnSave": false,
+    "editor.trimAutoWhitespace": true,
+    "editor.snippetSuggestions": "none",
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true
+  },
+  // Makefile
+  "[makefile]": {
+    "editor.insertSpaces": false,
+    "editor.detectIndentation": false
+  },
+  //JSON
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features",
+    "editor.formatOnSave": true
+  },
+  // Git
+  "git.autofetch": true,
+  // Live Server
+  "liveServer.settings.CustomBrowser": "chrome",
+  "redhat.telemetry.enabled": false,
+  "workbench.colorTheme": "Kanagawa Paper",
+  "workbench.startupEditor": "none",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.activityBar.location": "hidden",
+  "terminal.integrated.enableMultiLinePasteWarning": "never"
+}
