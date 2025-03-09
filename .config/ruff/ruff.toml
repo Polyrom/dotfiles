@@ -1,0 +1,33 @@
+line-length = 120
+indent-width = 4
+respect-gitignore = true
+exclude = [".git", "__pycache__", "migrations", ".venv", "venv"]
+
+[lint]
+extend-select = [
+  "A",
+  "Q",
+  "COM",
+  "C4",
+  "B006",
+  "T20",
+  "ARG",
+  "RET",
+  "SLF",
+  "S",
+  "SIM",
+  "BLE",
+  "PLR0911",
+  "PLR0913",
+  "PLR0915",
+  "C901",
+]
+extend-ignore = ["S101", "T201"]
+
+[lint.per-file-ignores]
+"tests/*" = ["S"]
+
+[format]
+indent-style = "space"
+line-ending = "auto"
+skip-magic-trailing-comma = false
