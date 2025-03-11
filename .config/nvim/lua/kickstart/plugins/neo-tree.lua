@@ -29,5 +29,15 @@ return {
         never_show = {},
       },
     },
+    renderer = {
+      icons = {
+        show = {
+          file = false,
+          folder = false,
+          folder_arrow = true,
+          git = true,
+        },
+      },
+    },
   },
 }

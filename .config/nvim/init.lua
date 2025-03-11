@@ -8,9 +8,11 @@ vim.g.have_nerd_font = true
 
 -- disable autoformat
 vim.g.autoformat = false
-
 -- [[ Setting options ]]
 --  For more options, you can see `:help option-list`
+
+-- fix autofillchars
+vim.opt.fillchars:append { eob = " " }
 
 -- Make relative line numbers default
 vim.opt.number = true
@@ -264,7 +266,7 @@ require('lazy').setup({
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons', enabled = false },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -593,6 +595,7 @@ require('lazy').setup({
         'ruff',
         'pyright',
         'gopls',
+        'clangd',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

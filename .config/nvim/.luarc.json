@@ -1,0 +1,8 @@
+{
+    "diagnostics.disable": [
+        "undefined-doc-name",
+        "redundant-parameter",
+        "param-type-mismatch",
+        "missing-fields"
+    ]
+}
