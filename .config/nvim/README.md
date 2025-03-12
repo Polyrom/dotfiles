@@ -7,7 +7,7 @@ I use it mostly for Python and Go development.
 + Fuzzy find
 + Debugger
 + Neotest
-+ GitSigns
++ Fugitive + GitSigns
 + Tmux interoperability
 
 _As always, the config is a work in progress_
