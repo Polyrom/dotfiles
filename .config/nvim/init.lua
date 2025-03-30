@@ -6,13 +6,11 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
--- disable autoformat
-vim.g.autoformat = false
 -- [[ Setting options ]]
 --  For more options, you can see `:help option-list`
 
 -- fix autofillchars
-vim.opt.fillchars:append { eob = " " }
+vim.opt.fillchars:append { eob = ' ' }
 
 -- Make relative line numbers default
 vim.opt.number = true
@@ -23,6 +21,9 @@ vim.opt.mouse = 'a'
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
+
+-- Disable autoformat
+vim.g.autoformat = false
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
@@ -708,7 +709,7 @@ require('lazy').setup({
           end,
         },
         completion = {
-          autocomplete = false,
+          -- autocomplete = false,
           completeopt = 'menu,menuone,noinsert',
         },
 
@@ -740,7 +741,7 @@ require('lazy').setup({
           -- Manually trigger a completion from nvim-cmp.
           --  Generally you don't need this, because nvim-cmp will display
           --  completions whenever it has completion options available.
-          ['<C-s>'] = cmp.mapping.complete {},
+          -- ['<C-s>'] = cmp.mapping.complete {},
 
           -- Think of <c-l> as moving to the right of your snippet expansion.
           --  So if you have a snippet that's like:
@@ -779,24 +780,14 @@ require('lazy').setup({
     end,
   },
 
-  -- You can easily change to a different colorscheme.
-  -- Change the name of the colorscheme plugin below, and then
-  -- change the command in the config to whatever the name of that colorscheme is.
-  --
-  -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
   {
-    'zenbones-theme/zenbones.nvim',
-    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
-    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
-    -- In Vim, compat mode is turned on as Lush only works in Neovim.
-    dependencies = 'rktjmp/lush.nvim',
-    lazy = false,
-    priority = 1000,
-    -- you can set set configuration options here
-    config = function()
-      vim.g.zenbones_darken_comments = 45
-      vim.cmd.colorscheme 'kanagawabones'
-    end,
+    {
+      'Skardyy/makurai-nvim',
+      config = function()
+        require('makurai').setup {}
+        vim.cmd.colorscheme 'makurai'
+      end,
+    },
   },
   -- example lazy.nvim install setup
   -- Highlight todo, notes, etc in comments

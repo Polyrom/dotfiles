@@ -53,3 +53,4 @@ source $ZSH/oh-my-zsh.sh
 
 # aliases
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias vim=nvim
