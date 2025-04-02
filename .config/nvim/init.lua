@@ -779,15 +779,15 @@ require('lazy').setup({
       }
     end,
   },
-
   {
-    {
-      'Skardyy/makurai-nvim',
-      config = function()
-        require('makurai').setup {}
-        vim.cmd.colorscheme 'makurai'
-      end,
-    },
+    'rose-pine/neovim',
+    name = 'rose-pine',
+    config = function()
+      require('rose-pine').setup {
+        styles = { italic = false },
+      }
+      vim.cmd 'colorscheme rose-pine'
+    end,
   },
   -- example lazy.nvim install setup
   -- Highlight todo, notes, etc in comments
