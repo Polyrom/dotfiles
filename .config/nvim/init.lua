@@ -110,6 +110,9 @@ vim.keymap.set('n', 'vs', ':vsplit<Return>', { desc = 'Split vertically' })
 vim.keymap.set('n', '+', '<C-a>', { desc = 'Increment' })
 vim.keymap.set('n', '-', '<C-x>', { desc = 'Decrement' })
 
+-- Code line diagnostic
+vim.keymap.set('n', '<leader>cd', vim.diagnostic.open_float, { desc = 'Line [C]ode [D]iagnostics' })
+
 -- Disable yank on x
 vim.keymap.set({ 'v', 'n' }, 'x', '"_x')
 
@@ -497,20 +500,20 @@ require('lazy').setup({
             [vim.diagnostic.severity.HINT] = '󰌶 ',
           },
         } or {},
-        virtual_text = {
-          source = 'if_many',
-          spacing = 2,
-          virtual_text = false,
-          format = function(diagnostic)
-            local diagnostic_message = {
-              [vim.diagnostic.severity.ERROR] = diagnostic.message,
-              [vim.diagnostic.severity.WARN] = diagnostic.message,
-              [vim.diagnostic.severity.INFO] = diagnostic.message,
-              [vim.diagnostic.severity.HINT] = diagnostic.message,
-            }
-            return diagnostic_message[diagnostic.severity]
-          end,
-        },
+        virtual_text = false,
+        -- virtual_text = {
+        --   source = 'if_many',
+        --   spacing = 2,
+        --   format = function(diagnostic)
+        --     local diagnostic_message = {
+        --       [vim.diagnostic.severity.ERROR] = diagnostic.message,
+        --       [vim.diagnostic.severity.WARN] = diagnostic.message,
+        --       [vim.diagnostic.severity.INFO] = diagnostic.message,
+        --       [vim.diagnostic.severity.HINT] = diagnostic.message,
+        --     }
+        --     return diagnostic_message[diagnostic.severity]
+        --   end,
+        -- },
       }
 
       -- LSP servers and clients are able to communicate to each other what features they support.
@@ -537,7 +540,7 @@ require('lazy').setup({
             disableOrganizeImports = true,
             python = {
               analysis = {
-                ignore = { '*' },
+                -- ignore = { '*' },
                 typeCheckingMode = 'basic',
               },
             },
@@ -781,10 +784,22 @@ require('lazy').setup({
   },
   {
     'rose-pine/neovim',
+    lazy = false,
+    priority = 1000,
     name = 'rose-pine',
     config = function()
       require('rose-pine').setup {
         styles = { italic = false },
+        highlight_groups = {
+          DiagnosticUnderlineError = { underline = false, undercurl = true },
+          DiagnosticUnderlineHint = { underline = false, undercurl = true },
+          DiagnosticUnderlineInfo = { underline = false, undercurl = true },
+          DiagnosticUnderlineWarn = { underline = false, undercurl = true },
+          SpellBad = { underline = false, undercurl = true },
+          SpellCap = { underline = false, undercurl = true },
+          SpellLocal = { underline = false, undercurl = true },
+          SpellRare = { underline = false, undercurl = true },
+        },
       }
       vim.cmd 'colorscheme rose-pine'
     end,
