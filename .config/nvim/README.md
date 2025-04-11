@@ -6,7 +6,8 @@ I use it mostly for Python and Go development.
 + LSP
 + Fuzzy find
 + Debugger
-+ Testing UI
++ Basic Git
++ Testing Kit
 + Tmux interoperability
 
 _As always, the config is a work in progress_
