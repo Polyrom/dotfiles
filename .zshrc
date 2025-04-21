@@ -50,8 +50,9 @@ plugins=(
   )
 
 source $ZSH/oh-my-zsh.sh
+eval "$(oh-my-posh init zsh)"
+eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/montys.omp.json)"
 
 # aliases
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
-alias vim=nvim
 alias lgit=lazygit
