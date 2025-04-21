@@ -1,120 +1,5 @@
--- Set <space> as the leader key
--- See `:help mapleader`
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
--- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = true
-
--- [[ Setting options ]]
---  For more options, you can see `:help option-list`
-
--- fix autofillchars
-vim.opt.fillchars:append { eob = ' ' }
-
--- Make relative line numbers default
-vim.opt.number = true
-vim.opt.relativenumber = true
-
--- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = 'a'
-
--- Don't show the mode, since it's already in the status line
-vim.opt.showmode = false
-
--- Disable autoformat
-vim.g.autoformat = false
-
--- Sync clipboard between OS and Neovim.
---  Schedule the setting after `UiEnter` because it can increase startup-time.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
-vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
-end)
-
--- Enable break indent (wrapped line is aligned with the indent)
-vim.opt.breakindent = true
-
--- Save undo history
-vim.opt.undofile = true
-
--- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-
--- Keep signcolumn on by default
-vim.opt.signcolumn = 'yes'
-
--- Decrease update time
-vim.opt.updatetime = 250
-
--- Decrease mapped sequence wait time
-vim.opt.timeoutlen = 300
-
--- Configure how new splits should be opened
-vim.opt.splitright = true
-vim.opt.splitbelow = true
-
--- Sets how neovim will display certain whitespace characters in the editor.
---  See `:help 'list'`
---  and `:help 'listchars'`
-vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-
--- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'
-
--- Show which line your cursor is on
-vim.opt.cursorline = true
-
--- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
-
--- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
-
--- Clear highlights on search when pressing <Esc> in normal mode
---  See `:help hlsearch`
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
--- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-
--- TIP: Disable arrow keys in normal mode
-vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
-vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
-vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
-vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
-
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
---  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-
--- Save buffer
-vim.keymap.set('n', '<leader>w', vim.cmd.w, { desc = '[W]rite buffer' })
-
--- Delete buffer
-vim.keymap.set('n', '<leader>bd', vim.cmd.bd, { desc = '[B]uffer [d]elete' })
-
--- Split window
-vim.keymap.set('n', 'ss', ':split<Return>', { desc = 'Split horizontally' })
-vim.keymap.set('n', 'vs', ':vsplit<Return>', { desc = 'Split vertically' })
-
--- Increment, decrement
-vim.keymap.set('n', '+', '<C-a>', { desc = 'Increment' })
-vim.keymap.set('n', '-', '<C-x>', { desc = 'Decrement' })
-
--- Code line diagnostic
-vim.keymap.set('n', '<leader>cd', vim.diagnostic.open_float, { desc = 'Line [C]ode [D]iagnostics' })
-
--- Disable yank on x
-vim.keymap.set({ 'v', 'n' }, 'x', '"_x')
+require 'options'
+require 'keymaps'
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -782,25 +667,11 @@ require('lazy').setup({
     end,
   },
   {
-    'rose-pine/neovim',
+    'folke/tokyonight.nvim',
     lazy = false,
     priority = 1000,
-    name = 'rose-pine',
     config = function()
-      require('rose-pine').setup {
-        styles = { italic = false },
-        highlight_groups = {
-          DiagnosticUnderlineError = { underline = false, undercurl = true },
-          DiagnosticUnderlineHint = { underline = false, undercurl = true },
-          DiagnosticUnderlineInfo = { underline = false, undercurl = true },
-          DiagnosticUnderlineWarn = { underline = false, undercurl = true },
-          SpellBad = { underline = false, undercurl = true },
-          SpellCap = { underline = false, undercurl = true },
-          SpellLocal = { underline = false, undercurl = true },
-          SpellRare = { underline = false, undercurl = true },
-        },
-      }
-      vim.cmd 'colorscheme rose-pine'
+      vim.cmd 'colorscheme tokyonight'
     end,
   },
   -- example lazy.nvim install setup
@@ -827,6 +698,14 @@ require('lazy').setup({
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
       --
+      -- file navigation
+      require('mini.files').setup(
+        { windows = {
+          preview = true,
+          width_preview = 40,
+        } },
+        vim.keymap.set('n', '<leader>e', require('mini.files').open, { desc = '[E]xplore Files' })
+      )
       --
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
@@ -881,7 +760,6 @@ require('lazy').setup({
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
   require 'kickstart.plugins.indent_line',
-  require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns',
   require 'kickstart.plugins.debug',
 
