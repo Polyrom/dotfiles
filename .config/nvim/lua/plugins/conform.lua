@@ -9,7 +9,7 @@ return { -- Autoformat
         require('conform').format { async = true, lsp_format = 'fallback' }
       end,
       mode = '',
-      desc = '[C]ode [F]ormat',
+      desc = '[c]ode [f]ormat',
     },
   },
   opts = {

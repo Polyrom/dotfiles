@@ -29,42 +29,42 @@ return {
       function()
         require('dap').continue()
       end,
-      desc = '[D]ebug: Start/[C]ontinue',
+      desc = '[d]ebug: start/[c]ontinue',
     },
     {
       '<leader>dsI',
       function()
         require('dap').step_into()
       end,
-      desc = '[D]ebug: [S]tep [I]nto',
+      desc = '[d]ebug: [s]tep [i]nto',
     },
     {
       '<leader>dso',
       function()
         require('dap').step_over()
       end,
-      desc = '[D]ebug: [S]tep [O]ver',
+      desc = '[d]ebug: [s]tep [o]ver',
     },
     {
       '<leader>dsO',
       function()
         require('dap').step_out()
       end,
-      desc = '[D]ebug: [S]tep [O]ut',
+      desc = '[d]ebug: [s]tep [o]ut',
     },
     {
       '<leader>db',
       function()
         require('dap').toggle_breakpoint()
       end,
-      desc = '[D]ebug: Toggle [B]reakpoint',
+      desc = '[d]ebug: toggle [b]reakpoint',
     },
     {
       '<leader>dB',
       function()
         require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ')
       end,
-      desc = '[D]ebug: Set [B]reakpoint',
+      desc = '[d]ebug: set [b]reakpoint',
     },
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {
@@ -72,7 +72,7 @@ return {
       function()
         require('dapui').toggle()
       end,
-      desc = '[D]ebug: See last [s]ession result.',
+      desc = '[d]ebug: see last [s]ession result.',
     },
   },
   config = function()

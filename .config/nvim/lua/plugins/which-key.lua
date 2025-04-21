@@ -44,15 +44,15 @@ return { -- Useful plugin to show you pending keybinds.
 
     -- Document existing key chains
     spec = {
-      { '<leader>c', group = '[C]ode', mode = { 'n', 'x' }, icon = { icon = '󰘦', color = 'blue' } },
-      { '<leader>d', group = '[D]ebug', icon = { icon = '', color = 'green' } },
-      { '<leader>r', group = '[R]ename', icon = { icon = '󰑕', color = 'blue' } },
-      { '<leader>s', group = '[S]earch', icon = { icon = '', color = 'green' } },
-      { '<leader>u', group = '[U]ser interface', icon = { icon = '', color = 'yellow' } },
-      { '<leader>q', group = '[Q]uit', icon = { icon = '󰩈', color = 'red' } },
-      { '<leader>t', group = '[T]est', icon = { icon = '󰙨', color = 'green' } },
-      { '<leader>g', group = '[G]it', mode = { 'n', 'v' }, icon = { icon = '', color = 'blue' } },
-      { '<leader>b', group = '[B]uffer', icon = { icon = '', color = 'green' } },
+      { '<leader>c', group = '[c]ode', mode = { 'n', 'x' }, icon = { icon = '󰘦', color = 'blue' } },
+      { '<leader>d', group = '[d]ebug', icon = { icon = '', color = 'green' } },
+      { '<leader>r', group = '[r]ename', icon = { icon = '󰑕', color = 'blue' } },
+      { '<leader>s', group = '[s]earch', icon = { icon = '', color = 'green' } },
+      { '<leader>u', group = '[u]ser interface', icon = { icon = '', color = 'yellow' } },
+      { '<leader>q', group = '[q]uit', icon = { icon = '󰩈', color = 'red' } },
+      { '<leader>t', group = '[t]est', icon = { icon = '󰙨', color = 'green' } },
+      { '<leader>g', group = '[g]it', mode = { 'n', 'v' }, icon = { icon = '', color = 'blue' } },
+      { '<leader>b', group = '[b]uffer', icon = { icon = '', color = 'green' } },
     },
   },
 }

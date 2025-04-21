@@ -24,7 +24,7 @@ return { -- Collection of various small independent plugins/modules
         preview = true,
         width_preview = 40,
       } },
-      vim.keymap.set('n', '<leader>e', require('mini.files').open, { desc = '[E]xplore Files' })
+      vim.keymap.set('n', '<leader>e', require('mini.files').open, { desc = '[e]xplore files' })
     )
     --
     -- Simple and easy statusline.
