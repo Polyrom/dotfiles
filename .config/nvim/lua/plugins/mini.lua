@@ -15,15 +15,6 @@ return { -- Collection of various small independent plugins/modules
     -- - sd'   - [S]urround [D]elete [']quotes
     -- - sr)'  - [S]urround [R]eplace [)] [']
     require('mini.surround').setup()
-    --
-    -- file navigation
-    require('mini.files').setup(
-      { windows = {
-        preview = true,
-        width_preview = 60,
-      } },
-      vim.keymap.set('n', '<leader>e', require('mini.files').open, { desc = '[e]xplore files' })
-    )
     -- ... and there is more!
     --  Check out: https://github.com/echasnovski/mini.nvim
   end,

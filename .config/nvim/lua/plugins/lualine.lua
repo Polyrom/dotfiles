@@ -3,7 +3,7 @@ return {
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   opts = {
     icons_enabled = true,
-    theme = 'auto',
+    theme = 'catppuccin',
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
     disabled_filetypes = {
@@ -36,7 +36,23 @@ return {
     lualine_y = {},
     lualine_z = {},
   },
-  tabline = {},
+  tabline = {
+    lualine_a = {
+      { 'filetype', icon_only = true },
+    },
+    lualine_b = {
+      { 'tabs', mode = 2, max_length = vim.o.columns },
+      {
+        function()
+          vim.o.showtabline = 1
+          return ''
+          --HACK: lualine will set &showtabline to 2 if you have configured
+          --lualine for displaying tabline. We want to restore the default
+          --behavior here.
+        end,
+      },
+    },
+  },
   winbar = {},
   inactive_winbar = {},
   extensions = {},
