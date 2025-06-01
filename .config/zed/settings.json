@@ -1,0 +1,69 @@
+{
+    "icon_theme": "Catppuccin Mocha",
+    "telemetry": {
+        "metrics": false,
+        "diagnostics": false
+    },
+    "vim_mode": true,
+    "vim": {
+        "toggle_relative_line_numbers": true
+    },
+    "restore_on_startup": "last_workspace",
+    "autosave": "on_focus_change",
+    "cursor_blink": false,
+    "tab_size": 4,
+    "ui_font_size": 16,
+    "buffer_font_family": "Zed Plex Mono",
+    "buffer_font_size": 14,
+    "buffer_font_fallbacks": ["BlexMono Nerd Font"],
+    "theme": {
+        "mode": "system",
+        "light": "Catppuccin Latte (Blur)",
+        "dark": "Catppuccin Mocha (Blur)"
+    },
+    "show_edit_predictions": false,
+    "git": {
+        "inline_blame": {
+            "enabled": false
+        }
+    },
+    "lsp": {
+        "ruff": {
+            "initialization_options": {
+                "settings": {
+                    "configuration": "~/path/to/ruff.toml"
+                }
+            }
+        },
+        "pyright": {
+            "settings": {
+                "disableOrganizeImports": true,
+                "python.analysis": {
+                    "typeCheckingMode": "basic"
+                }
+            }
+        }
+    },
+    "languages": {
+        "Python": {
+            "format_on_save": "on",
+            "formatter": { "language_server": { "name": "ruff" } },
+            "code_actions_on_format": {
+                "source.organizeImports.ruff": true,
+                "source.format.ruff": true
+            },
+            "remove_trailing_whitespace_on_save": true,
+            "language_servers": ["pyright", "ruff"],
+            "wrap_guides": [120]
+        },
+        "JavaScript": {
+            "language_servers": ["typescript-language-server", "!vtsls", "..."],
+            "code_actions_on_format": {
+                "source.fixAll.eslint": true
+            }
+        },
+        "TypeScript": {
+            "language_servers": ["typescript-language-server", "!vtsls", "..."]
+        }
+    }
+}
